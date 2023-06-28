@@ -1,0 +1,6 @@
+SELECT customers.customerId, customers.name, GROUP_CONCAT(subjects.subjectName ORDER BY subjects.subjectName) AS subjects
+FROM customers
+JOIN mapping ON customers.customerId = mapping.customerId
+JOIN subjects ON subjects.subjectId = mapping.subjectId
+GROUP BY customers.customerId
+ORDER BY customers.customerId
